@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - LokalMart Owner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/owner.css">
+</head>
+<body>
+
+  <div class="owner-layout">
+    <aside class="owner-sidebar">
+      <div class="sidebar-logo tamil">Lokal<span>Mart</span></div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link tamil"><i class="fa fa-home"></i> என் கடை</a>
+        <a href="orders.html" class="sidebar-link tamil"><i class="fa fa-bell"></i> ஆர்டர்கள் <span class="notif-badge" id="pending-count">3</span></a>
+        <a href="products.html" class="sidebar-link active tamil"><i class="fa fa-box"></i> பொருட்கள்</a>
+        <a href="earnings.html" class="sidebar-link tamil"><i class="fa fa-rupee-sign"></i> சம்பாதிப்பு</a>
+        <a href="credit.html" class="sidebar-link tamil"><i class="fa fa-book"></i> வாரி கணக்கு</a>
+        <a href="settings.html" class="sidebar-link tamil"><i class="fa fa-cog"></i> Settings</a>
+        <a href="../index.html" class="sidebar-link tamil" style="margin-top: auto;"><i class="fa fa-sign-out-alt"></i> வெளியேறு</a>
+      </nav>
+      <div class="open-toggle-wrap">
+        <span class="tamil">கடை நிலை:</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="shop-open" checked onchange="toggleShopOpen()">
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label tamil" id="open-label">திறந்திருக்கிறது</span>
+      </div>
+    </aside>
+
+    <main class="owner-main">
+      <div class="section-head">
+        <h2 class="tamil">பொருட்கள் (Products)</h2>
+        <button class="btn btn-primary btn-sm tamil"><i class="fa fa-plus"></i> புதிய பொருள்</button>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="font-size: 24px;">🌾</div>
+          <div>
+            <div style="font-weight: 700;" class="tamil">பொன்னி அரிசி (Ponni Rice)</div>
+            <div class="muted tamil" style="font-size: 13px;">₹60 / kg</div>
+          </div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="font-size: 24px;">🫙</div>
+          <div>
+            <div style="font-weight: 700;" class="tamil">சன் பிளவர் எண்ணெய் (Sunflower Oil)</div>
+            <div class="muted tamil" style="font-size: 13px;">₹120 / litre</div>
+          </div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+
+      <div class="card" style="margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="font-size: 24px;">🍅</div>
+          <div>
+            <div style="font-weight: 700;" class="tamil">தக்காளி (Tomato)</div>
+            <div class="muted tamil" style="font-size: 13px;">₹30 / kg</div>
+          </div>
+        </div>
+        <label class="toggle-switch">
+          <input type="checkbox">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html" class="bottom-nav-item"><i class="fa fa-home"></i><span>என் கடை</span></a>
+      <a href="orders.html" class="bottom-nav-item"><i class="fa fa-bell"></i><span>ஆர்டர்கள்</span></a>
+      <a href="earnings.html" class="bottom-nav-item"><i class="fa fa-rupee-sign"></i><span>சம்பாதிப்பு</span></a>
+      <a href="settings.html" class="bottom-nav-item"><i class="fa fa-cog"></i><span>Settings</span></a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/language.js"></script>
+  <script src="../js/owner.js"></script>
+</body>
+</html>

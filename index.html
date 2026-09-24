@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AnnachiKadai — உங்கள் ஊர் கடைகளை உங்கள் கையில்</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        Annachi<span>Kadai</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="nav-links">
+        <a href="index.html" data-ta="முகப்பு" data-en="Home" class="active">முகப்பு</a>
+        <a href="customer/shops.html" data-ta="கடைகள்" data-en="Shops">கடைகள்</a>
+        <a href="customer/order-history.html" data-ta="Orders" data-en="Orders">Orders</a>
+      </div>
+
+      <!-- Language Toggle -->
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <i class="fa fa-globe"></i>
+      </button>
+
+      <!-- Auth Buttons -->
+      <div class="nav-auth">
+        <a href="login.html" class="btn btn-outline" data-ta="உள்நுழை" data-en="Login">உள்நுழை</a>
+        <a href="register.html" class="btn btn-primary" data-ta="பதிவு செய்" data-en="Sign Up">பதிவு செய்</a>
+        <!-- Owner link for demo -->
+        <a href="owner/dashboard.html" class="btn btn-dark" data-ta="கடைக்காரர்" data-en="Owner">கடைக்காரர்</a>
+      </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">முகப்பு</a>
+      <a href="customer/shops.html">கடைகள்</a>
+      <a href="customer/order-history.html">Orders</a>
+      <a href="login.html">உள்நுழை</a>
+      <a href="owner/dashboard.html">கடைக்காரர் (Owner)</a>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fa fa-map-marker-alt"></i>
+          <span data-ta="Tamil Nadu மாவட்ட commerce" data-en="Tamil Nadu District Commerce">
+            Tamil Nadu மாவட்ட commerce
+          </span>
+        </div>
+
+        <h1 class="hero-title tamil">
+          உங்கள் ஊர் கடைகளை<br>
+          <span class="highlight">உங்கள் கையில்</span>
+        </h1>
+
+        <p class="hero-subtitle tamil">
+          Madurai, Coimbatore, Salem-ல உள்ள local கடைகளில்
+          இருந்து நேரடியாக order பண்ணுங்கள்.
+          Zepto இல்லை — உங்கள் ஊர் கடை!
+        </p>
+
+        <!-- Search Bar -->
+        <div class="hero-search">
+          <select id="district-select" class="district-select">
+            <option value="">📍 மாவட்டம் தேர்வு செய்யுங்கள்</option>
+            <option value="madurai">Madurai — மதுரை</option>
+            <option value="coimbatore">Coimbatore — கோயம்புத்தூர்</option>
+            <option value="salem">Salem — சேலம்</option>
+            <option value="trichy">Trichy — திருச்சி</option>
+            <option value="tirunelveli">Tirunelveli — திருநெல்வேலி</option>
+            <option value="vellore">Vellore — வேலூர்</option>
+            <option value="erode">Erode — ஈரோடு</option>
+            <option value="thoothukudi">Thoothukudi — தூத்துக்குடி</option>
+            <option value="dindigul">Dindigul — டிண்டுக்கல்</option>
+            <option value="thanjavur">Thanjavur — தஞ்சாவூர்</option>
+          </select>
+
+          <div class="search-input-wrap">
+            <i class="fa fa-search"></i>
+            <input type="text" id="hero-search" class="tamil" placeholder="கடை அல்லது பொருள் தேடுங்கள்..."
+              oninput="liveSearch(this.value)">
+            <button class="voice-btn" onclick="startVoice()" title="Voice search">
+              <i class="fa fa-microphone"></i>
+            </button>
+          </div>
+
+          <button class="btn btn-primary btn-lg" onclick="searchShops()" data-ta="கடை தேடு" data-en="Search Shops">
+            <i class="fa fa-search"></i>
+            கடை தேடு
+          </button>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num" data-target="2400">2400</div>
+            <div class="stat-lbl tamil">கடைகள்</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-target="38">38</div>
+            <div class="stat-lbl tamil">மாவட்டங்கள்</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num" data-target="120000">1.2L+</div>
+            <div class="stat-lbl tamil">Orders</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4.8★</div>
+            <div class="stat-lbl tamil">Rating</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="section">
+      <div class="section-head">
+        <h2 class="tamil">வகை தேர்வு செய்யுங்கள்</h2>
+        <a href="customer/shops.html" class="tamil">அனைத்தும் காண்க →</a>
+      </div>
+      <div class="category-grid">
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=grocery'">
+          <div class="cat-icon">🛒</div>
+          <div class="cat-name tamil">மளிகை</div>
+          <div class="cat-name-en">Grocery</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=medical'">
+          <div class="cat-icon">💊</div>
+          <div class="cat-name tamil">மருந்து</div>
+          <div class="cat-name-en">Medical</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=hardware'">
+          <div class="cat-icon">🔧</div>
+          <div class="cat-name tamil">இரும்பு கடை</div>
+          <div class="cat-name-en">Hardware</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=electrical'">
+          <div class="cat-icon">⚡</div>
+          <div class="cat-name tamil">மின்சார</div>
+          <div class="cat-name-en">Electrical</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=stationery'">
+          <div class="cat-icon">📚</div>
+          <div class="cat-name tamil">எழுது பொருள்</div>
+          <div class="cat-name-en">Stationery</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=fruits'">
+          <div class="cat-icon">🍎</div>
+          <div class="cat-name tamil">பழம் & காய்</div>
+          <div class="cat-name-en">Fruits & Veg</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=cosmetics'">
+          <div class="cat-icon">🧴</div>
+          <div class="cat-name tamil">அழகு சாதனம்</div>
+          <div class="cat-name-en">Cosmetics</div>
+        </div>
+        <div class="cat-card" onclick="window.location.href='customer/shops.html?category=meat'">
+          <div class="cat-icon">🥩</div>
+          <div class="cat-name tamil">இறைச்சி</div>
+          <div class="cat-name-en">Meat</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-section">
+      <div class="section">
+        <div class="section-head">
+          <h2 class="tamil">எப்படி செய்வது?</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <div class="step-icon">📍</div>
+            <h3 class="tamil">உங்கள் மாவட்டம் தேர்வு செய்யுங்கள்</h3>
+            <p class="tamil">உங்கள் பகுதியில் உள்ள கடைகளை பாருங்கள்</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <div class="step-icon">🏪</div>
+            <h3 class="tamil">கடை தேர்வு செய்யுங்கள்</h3>
+            <p class="tamil">வகையை தேர்ந்தெடுத்து அருகில் உள்ள கடையை பாருங்கள்</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <div class="step-icon">📋</div>
+            <h3 class="tamil">Order பண்ணுங்கள்</h3>
+            <p class="tamil">என்ன வேணும்னு சொல்லுங்கள் — கடை confirm பண்ணும்</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="index.html" class="bottom-nav-item active">
+        <i class="fa fa-home"></i>
+        <span>முகப்பு</span>
+      </a>
+      <a href="customer/shops.html" class="bottom-nav-item">
+        <i class="fa fa-store"></i>
+        <span>கடைகள்</span>
+      </a>
+      <a href="customer/order-history.html" class="bottom-nav-item">
+        <i class="fa fa-receipt"></i>
+        <span>Orders</span>
+      </a>
+      <a href="customer/profile.html" class="bottom-nav-item">
+        <i class="fa fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
+  <script src="js/language.js"></script>
+</body>
+
+</html>

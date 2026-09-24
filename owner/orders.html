@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders - LokalMart Owner</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/owner.css">
+</head>
+<body>
+
+  <!-- IMPORTANT: Maximum simplicity for non-tech Tamil shop owners -->
+
+  <div class="owner-layout">
+
+    <!-- Sidebar (desktop) -->
+    <aside class="owner-sidebar">
+      <div class="sidebar-logo tamil">
+        Lokal<span>Mart</span>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="dashboard.html" class="sidebar-link tamil">
+          <i class="fa fa-home"></i> என் கடை
+        </a>
+        <a href="orders.html" class="sidebar-link active tamil">
+          <i class="fa fa-bell"></i> ஆர்டர்கள்
+          <span class="notif-badge" id="pending-count">3</span>
+        </a>
+        <a href="products.html" class="sidebar-link tamil">
+          <i class="fa fa-box"></i> பொருட்கள்
+        </a>
+        <a href="earnings.html" class="sidebar-link tamil">
+          <i class="fa fa-rupee-sign"></i> சம்பாதிப்பு
+        </a>
+        <a href="credit.html" class="sidebar-link tamil">
+          <i class="fa fa-book"></i> வாரி கணக்கு
+        </a>
+        <a href="settings.html" class="sidebar-link tamil">
+          <i class="fa fa-cog"></i> Settings
+        </a>
+        <a href="../index.html" class="sidebar-link tamil" style="margin-top: auto;">
+          <i class="fa fa-sign-out-alt"></i> வெளியேறு
+        </a>
+      </nav>
+
+      <!-- Open/Close Toggle -->
+      <div class="open-toggle-wrap">
+        <span class="tamil">கடை நிலை:</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="shop-open" checked onchange="toggleShopOpen()">
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label tamil" id="open-label">திறந்திருக்கிறது</span>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="owner-main">
+
+      <!-- Order Tabs -->
+      <div class="order-tabs">
+        <button class="order-tab active tamil" onclick="filterOrders('pending')" data-status="pending">
+          நிலுவை
+          <span class="tab-count" id="tab-pending">3</span>
+        </button>
+        <button class="order-tab tamil" onclick="filterOrders('confirmed')" data-status="confirmed">
+          உறுதிப்படுத்தியது
+          <span class="tab-count" id="tab-confirmed">2</span>
+        </button>
+        <button class="order-tab tamil" onclick="filterOrders('delivered')" data-status="delivered">
+          கொடுத்தாச்சு
+          <span class="tab-count" id="tab-delivered">18</span>
+        </button>
+        <button class="order-tab tamil" onclick="filterOrders('rejected')" data-status="rejected">
+          மறுத்தது
+          <span class="tab-count" id="tab-rejected">1</span>
+        </button>
+      </div>
+
+      <!-- Orders List -->
+      <div class="orders-list" id="orders-container">
+
+        <!-- Single Order Card (Pending) -->
+        <div class="owner-order-card order-item" data-status="pending" data-id="2841">
+          <!-- Order Header -->
+          <div class="order-card-head">
+            <div>
+              <span class="order-id">#MDU-2841</span>
+              <span class="order-time tamil muted">5 நிமிடம் முன்பு</span>
+            </div>
+            <span class="badge badge-pending tamil">நிலுவையில்</span>
+          </div>
+
+          <!-- Customer Info -->
+          <div class="customer-info">
+            <div class="customer-avatar">RK</div>
+            <div>
+              <div class="customer-name">Ravi Kumar</div>
+              <a href="tel:9876543210" class="customer-phone tamil">
+                <i class="fa fa-phone"></i> 98765 43210
+              </a>
+            </div>
+            <a href="tel:9876543210" class="call-btn btn btn-outline btn-sm tamil">
+              <i class="fa fa-phone"></i> Call
+            </a>
+          </div>
+
+          <!-- Product List -->
+          <div class="order-products">
+            <h4 class="tamil">வேண்டிய பொருட்கள்:</h4>
+            <ul class="product-list tamil">
+              <li>🌾 அரிசி — 5 kg</li>
+              <li>🍅 தக்காளி — 2 kg</li>
+              <li>🫙 எண்ணெய் — 1 litre</li>
+              <li>🍚 சர்க்கரை — 2 kg</li>
+            </ul>
+          </div>
+
+          <!-- Delivery + Payment -->
+          <div class="order-meta-row">
+            <span class="meta-chip tamil">
+              <i class="fa fa-truck"></i> Home Delivery
+            </span>
+            <span class="meta-chip tamil">
+              <i class="fa fa-rupee-sign"></i> Cash
+            </span>
+          </div>
+
+          <!-- Actions -->
+          <div class="order-actions">
+            <button class="btn btn-red tamil" onclick="updateOrderStatus(2841, 'rejected')">
+              <i class="fa fa-times"></i> மறுக்க
+            </button>
+            <button class="btn btn-green tamil" onclick="updateOrderStatus(2841, 'confirmed')">
+              <i class="fa fa-check"></i> உறுதி செய்
+            </button>
+          </div>
+        </div>
+
+        <!-- Single Order Card (Confirmed) -->
+        <div class="owner-order-card order-item" data-status="confirmed" data-id="2840" style="display: none;">
+          <div class="order-card-head">
+            <div>
+              <span class="order-id">#MDU-2840</span>
+              <span class="order-time tamil muted">30 நிமிடம் முன்பு</span>
+            </div>
+            <span class="badge badge-confirmed tamil">உறுதிப்படுத்தியது</span>
+          </div>
+          <div class="customer-info">
+            <div class="customer-avatar" style="background:var(--blue-light);color:var(--blue-dark)">SM</div>
+            <div>
+              <div class="customer-name">Senthil Murugan</div>
+              <a href="tel:9876543211" class="customer-phone tamil"><i class="fa fa-phone"></i> 98765 43211</a>
+            </div>
+            <a href="tel:9876543211" class="call-btn btn btn-outline btn-sm tamil"><i class="fa fa-phone"></i> Call</a>
+          </div>
+          <div class="order-products">
+            <h4 class="tamil">வேண்டிய பொருட்கள்:</h4>
+            <ul class="product-list tamil">
+              <li>🧼 சோப்பு — 4 piece</li>
+              <li>🧴 ஷாம்பு — 1 bottle</li>
+            </ul>
+          </div>
+          <div class="order-meta-row">
+            <span class="meta-chip tamil"><i class="fa fa-store"></i> Pickup</span>
+            <span class="meta-chip tamil"><i class="fa fa-qrcode"></i> UPI</span>
+          </div>
+          <div class="order-actions">
+            <button class="btn btn-primary tamil" onclick="updateOrderStatus(2840, 'delivered')">
+              <i class="fa fa-box"></i> கொடுத்துவிட்டேன் (Delivered)
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- Bottom Nav for mobile -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="dashboard.html" class="bottom-nav-item">
+        <i class="fa fa-home"></i><span>என் கடை</span>
+      </a>
+      <a href="orders.html" class="bottom-nav-item active">
+        <i class="fa fa-bell"></i><span>ஆர்டர்கள்</span>
+      </a>
+      <a href="earnings.html" class="bottom-nav-item">
+        <i class="fa fa-rupee-sign"></i><span>சம்பாதிப்பு</span>
+      </a>
+      <a href="settings.html" class="bottom-nav-item">
+        <i class="fa fa-cog"></i><span>Settings</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- JS -->
+  <script src="../js/main.js"></script>
+  <script src="../js/language.js"></script>
+  <script src="../js/owner.js"></script>
+</body>
+</html>

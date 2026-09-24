@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order - LokalMart</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/customer.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lokal<span>Mart</span></a>
+      <div class="nav-links">
+        <a href="../index.html" data-ta="முகப்பு" data-en="Home">முகப்பு</a>
+        <a href="shops.html" data-ta="கடைகள்" data-en="Shops" class="active">கடைகள்</a>
+        <a href="order-history.html" data-ta="Orders" data-en="Orders">Orders</a>
+      </div>
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <i class="fa fa-globe"></i>
+      </button>
+      <div class="nav-auth">
+        <a href="../login.html" class="btn btn-outline" data-ta="உள்நுழை" data-en="Login">உள்நுழை</a>
+        <a href="../register.html" class="btn btn-primary" data-ta="பதிவு செய்" data-en="Sign Up">பதிவு செய்</a>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="../index.html">முகப்பு</a>
+      <a href="shops.html">கடைகள்</a>
+      <a href="order-history.html">Orders</a>
+      <a href="../login.html">உள்நுழை</a>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main>
+    <section class="section">
+      <div class="order-layout">
+
+        <!-- Shop Info Card -->
+        <div class="card shop-info-card">
+          <div class="shop-detail-header">
+            <div class="shop-detail-icon">🛒</div>
+            <div>
+              <h1 class="tamil" id="shop-name">Sri Murugan Grocery</h1>
+              <p class="tamil muted" id="shop-addr">Anna Nagar, Madurai</p>
+              <div class="shop-meta-row">
+                <span>⭐ 4.7</span>
+                <span class="tamil">248 orders</span>
+                <span class="badge badge-open tamil">திறந்திருக்கிறது</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Form -->
+        <div class="card order-form-card">
+          <h2 class="tamil">
+            <i class="fa fa-list"></i>
+            என்ன வேணும்?
+          </h2>
+
+          <!-- Input Method Toggle -->
+          <div class="input-method-tabs">
+            <button class="method-tab active" onclick="switchMethod('type')">
+              <i class="fa fa-keyboard"></i>
+              <span class="tamil">Type பண்ணுங்க</span>
+            </button>
+            <button class="method-tab" onclick="switchMethod('photo')">
+              <i class="fa fa-camera"></i>
+              <span class="tamil">Photo எடுங்க</span>
+            </button>
+            <button class="method-tab" onclick="switchMethod('voice')">
+              <i class="fa fa-microphone"></i>
+              <span class="tamil">பேசுங்க</span>
+            </button>
+          </div>
+
+          <!-- Type Method -->
+          <div id="method-type" class="method-panel active">
+            <div id="product-rows">
+              <div class="product-row">
+                <input type="text" class="tamil" placeholder="பொருள் பெயர் (எ.கா. அரிசி)">
+                <input type="text" class="qty-input tamil" placeholder="அளவு">
+                <select class="unit-select tamil">
+                  <option>kg</option>
+                  <option>litre</option>
+                  <option>piece</option>
+                  <option>packet</option>
+                  <option>dozen</option>
+                </select>
+                <button class="del-row-btn" onclick="delRow(this)"><i class="fa fa-times"></i></button>
+              </div>
+            </div>
+            <button class="add-row-btn tamil" onclick="addProductRow()">
+              <i class="fa fa-plus"></i>
+              இன்னொரு பொருள் சேர்க்கணும்
+            </button>
+          </div>
+
+          <!-- Photo Method -->
+          <div id="method-photo" class="method-panel">
+            <div class="photo-upload-area" onclick="document.getElementById('list-photo').click()">
+              <i class="fa fa-camera fa-2x"></i>
+              <p class="tamil">கையால் எழுதிய list-ஐ photo எடுங்கள்</p>
+              <span class="tamil muted">கிளிக் செய்து photo select பண்ணுங்கள்</span>
+              <input type="file" id="list-photo" accept="image/*" capture="camera" onchange="previewPhoto(this)" style="display:none">
+            </div>
+            <div id="photo-preview" class="photo-preview"></div>
+          </div>
+
+          <!-- Voice Method -->
+          <div id="method-voice" class="method-panel">
+            <div class="voice-area">
+              <button class="voice-record-btn" id="voice-btn" onclick="toggleVoice()">
+                <i class="fa fa-microphone fa-2x"></i>
+              </button>
+              <p class="tamil voice-instruction">Button-ஐ அழுத்தி பேசுங்கள்</p>
+              <p class="tamil voice-instruction muted">உதாரணம்: "அரிசி 5 கிலோ, தக்காளி 2 கிலோ வேணும்"</p>
+              <div id="voice-result" class="voice-result tamil"></div>
+            </div>
+          </div>
+
+          <!-- Delivery Type -->
+          <div class="delivery-section">
+            <h3 class="tamil"><i class="fa fa-truck"></i> எப்படி வேணும்?</h3>
+            <div class="delivery-options">
+              <label class="delivery-opt">
+                <input type="radio" name="delivery" value="home" checked>
+                <div class="delivery-card">
+                  <span class="delivery-icon">🏠</span>
+                  <span class="tamil">வீட்டுக்கு கொண்டு வாருங்கள்</span>
+                  <span class="delivery-sub">Home Delivery</span>
+                </div>
+              </label>
+              <label class="delivery-opt">
+                <input type="radio" name="delivery" value="pickup">
+                <div class="delivery-card">
+                  <span class="delivery-icon">🏪</span>
+                  <span class="tamil">நானே கடைக்கு வருகிறேன்</span>
+                  <span class="delivery-sub">Pickup</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Payment Type -->
+          <div class="payment-section">
+            <h3 class="tamil"><i class="fa fa-rupee-sign"></i> எப்படி pay பண்றீங்க?</h3>
+            <div class="payment-options">
+              <label class="payment-opt">
+                <input type="radio" name="payment" value="cash" checked>
+                <div class="payment-card">
+                  💵 <span class="tamil">கையில் கொடுக்கிறேன்</span>
+                </div>
+              </label>
+              <label class="payment-opt">
+                <input type="radio" name="payment" value="upi">
+                <div class="payment-card">
+                  📱 <span>UPI / GPay</span>
+                </div>
+              </label>
+              <label class="payment-opt">
+                <input type="radio" name="payment" value="credit">
+                <div class="payment-card">
+                  📒 <span class="tamil">வாரி வைக்கணும்</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label class="tamil">கூடுதல் குறிப்புகள் (தேவைப்பட்டால்)</label>
+            <textarea class="tamil" placeholder="எந்த brand வேணும், எந்த நேரம் வேணும் என்று சொல்லுங்கள்..."></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button class="btn btn-primary btn-full btn-lg tamil" onclick="placeOrder()">
+            <i class="fa fa-paper-plane"></i>
+            Order அனுப்பு
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="../index.html" class="bottom-nav-item">
+        <i class="fa fa-home"></i>
+        <span>முகப்பு</span>
+      </a>
+      <a href="shops.html" class="bottom-nav-item active">
+        <i class="fa fa-store"></i>
+        <span>கடைகள்</span>
+      </a>
+      <a href="order-history.html" class="bottom-nav-item">
+        <i class="fa fa-receipt"></i>
+        <span>Orders</span>
+      </a>
+      <a href="profile.html" class="bottom-nav-item">
+        <i class="fa fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Toast -->
+  <div id="toast" class="toast"></div>
+
+  <!-- JS -->
+  <script src="../js/main.js"></script>
+  <script src="../js/language.js"></script>
+  <script src="../js/order.js"></script>
+</body>
+</html>

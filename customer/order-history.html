@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order History - LokalMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lokal<span>Mart</span></a>
+      <div class="nav-links">
+        <a href="../index.html">முகப்பு</a>
+        <a href="shops.html">கடைகள்</a>
+        <a href="order-history.html" class="active">Orders</a>
+      </div>
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <i class="fa fa-globe"></i>
+      </button>
+      <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="section">
+    <div class="section-head">
+      <h2 class="tamil">உங்கள் ஆர்டர்கள்</h2>
+    </div>
+
+    <div style="display: grid; gap: 16px; max-width: 800px; margin: 0 auto;">
+      <div class="card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="font-weight: 700;">#MDU-2841 <span class="badge badge-pending tamil" style="margin-left: 8px;">நிலுவையில்</span></div>
+          <div class="tamil muted" style="font-size: 13px; margin-top: 4px;">Sri Murugan Grocery • 5 நிமிடம் முன்பு</div>
+          <div class="tamil" style="margin-top: 8px; font-size: 14px;">அரிசி 5kg, தக்காளி 2kg...</div>
+        </div>
+        <button class="btn btn-outline btn-sm tamil">ஆர்டர் விவரம்</button>
+      </div>
+
+      <div class="card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div style="font-weight: 700;">#MDU-2800 <span class="badge badge-delivered tamil" style="margin-left: 8px;">கொடுத்தாச்சு</span></div>
+          <div class="tamil muted" style="font-size: 13px; margin-top: 4px;">Apollo Medicals • 2 நாள் முன்பு</div>
+          <div class="tamil" style="margin-top: 8px; font-size: 14px;">Dolo 650 1 strip, Vicks...</div>
+        </div>
+        <button class="btn btn-outline btn-sm tamil">மீண்டும் ஆர்டர் செய்</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="../index.html" class="bottom-nav-item">
+        <i class="fa fa-home"></i><span>முகப்பு</span>
+      </a>
+      <a href="shops.html" class="bottom-nav-item">
+        <i class="fa fa-store"></i><span>கடைகள்</span>
+      </a>
+      <a href="order-history.html" class="bottom-nav-item active">
+        <i class="fa fa-receipt"></i><span>Orders</span>
+      </a>
+      <a href="profile.html" class="bottom-nav-item">
+        <i class="fa fa-user"></i><span>Profile</span>
+      </a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/language.js"></script>
+</body>
+</html>

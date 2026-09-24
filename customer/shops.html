@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shops - LokalMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <style>
+    .shops-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .shop-card { padding: 0; overflow: hidden; cursor: pointer; }
+    .shop-card-img { height: 140px; background: var(--orange-light); display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .shop-card-body { padding: 16px; }
+    .shop-title { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .shop-addr { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lokal<span>Mart</span></a>
+      <div class="nav-links">
+        <a href="../index.html">முகப்பு</a>
+        <a href="shops.html" class="active">கடைகள்</a>
+        <a href="order-history.html">Orders</a>
+      </div>
+      <button class="lang-toggle" onclick="toggleLanguage()">
+        <span id="lang-label">EN</span>
+        <i class="fa fa-globe"></i>
+      </button>
+      <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="section">
+    <div class="section-head">
+      <h2 class="tamil">அருகில் உள்ள கடைகள்</h2>
+    </div>
+
+    <div class="shops-grid">
+      <div class="card shop-card" onclick="window.location.href='shop-detail.html'">
+        <div class="shop-card-img">🛒</div>
+        <div class="shop-card-body">
+          <h3 class="shop-title tamil">Sri Murugan Grocery</h3>
+          <p class="shop-addr tamil">Anna Nagar, Madurai</p>
+          <div class="shop-meta-row" style="margin-top:0">
+            <span>⭐ 4.7</span>
+            <span class="badge badge-open tamil">திறந்திருக்கிறது</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shop-card" onclick="window.location.href='shop-detail.html'">
+        <div class="shop-card-img">💊</div>
+        <div class="shop-card-body">
+          <h3 class="shop-title tamil">Apollo Medicals</h3>
+          <p class="shop-addr tamil">KK Nagar, Madurai</p>
+          <div class="shop-meta-row" style="margin-top:0">
+            <span>⭐ 4.5</span>
+            <span class="badge badge-open tamil">திறந்திருக்கிறது</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card shop-card" onclick="window.location.href='shop-detail.html'">
+        <div class="shop-card-img">🍎</div>
+        <div class="shop-card-body">
+          <h3 class="shop-title tamil">Fresh Veg & Fruits</h3>
+          <p class="shop-addr tamil">Simmakkal, Madurai</p>
+          <div class="shop-meta-row" style="margin-top:0">
+            <span>⭐ 4.8</span>
+            <span class="badge badge-open tamil">திறந்திருக்கிறது</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card shop-card" onclick="window.location.href='shop-detail.html'">
+        <div class="shop-card-img">⚡</div>
+        <div class="shop-card-body">
+          <h3 class="shop-title tamil">Kannan Electricals</h3>
+          <p class="shop-addr tamil">Arapalayam, Madurai</p>
+          <div class="shop-meta-row" style="margin-top:0">
+            <span>⭐ 4.2</span>
+            <span class="badge badge-closed tamil">மூடப்பட்டுள்ளது</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/language.js"></script>
+</body>
+</html>

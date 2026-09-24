@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - LokalMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">Lokal<span>Mart</span></a>
+      <div class="nav-links">
+        <a href="../index.html">முகப்பு</a>
+        <a href="shops.html">கடைகள்</a>
+        <a href="order-history.html">Orders</a>
+      </div>
+      <button class="lang-toggle" onclick="toggleLanguage()"><span id="lang-label">EN</span><i class="fa fa-globe"></i></button>
+      <button class="hamburger" onclick="toggleMenu()"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <main class="section">
+    <div class="card" style="max-width: 600px; margin: 0 auto; padding: 32px; text-align: center;">
+      <div style="width: 80px; height: 80px; background: var(--orange-light); color: var(--orange-dark); border-radius: 50%; font-size: 32px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-weight: 700;">
+        RK
+      </div>
+      <h2 style="margin-bottom: 4px;">Ravi Kumar</h2>
+      <p class="muted" style="margin-bottom: 24px;">+91 98765 43210</p>
+      
+      <div style="text-align: left; margin-bottom: 24px;">
+        <h4 class="tamil" style="margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 8px;">முகவரி</h4>
+        <p class="tamil" style="font-size: 14px; color: var(--ink);">123, Anna Nagar,<br>Madurai - 625020</p>
+      </div>
+
+      <button class="btn btn-outline btn-full tamil" style="margin-bottom: 12px;">முகவரியை மாற்று</button>
+      <button class="btn btn-red btn-full tamil" onclick="window.location.href='../index.html'">வெளியேறு (Logout)</button>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <div class="bottom-nav-inner">
+      <a href="../index.html" class="bottom-nav-item"><i class="fa fa-home"></i><span>முகப்பு</span></a>
+      <a href="shops.html" class="bottom-nav-item"><i class="fa fa-store"></i><span>கடைகள்</span></a>
+      <a href="order-history.html" class="bottom-nav-item"><i class="fa fa-receipt"></i><span>Orders</span></a>
+      <a href="profile.html" class="bottom-nav-item active"><i class="fa fa-user"></i><span>Profile</span></a>
+    </div>
+  </nav>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/language.js"></script>
+</body>
+</html>
